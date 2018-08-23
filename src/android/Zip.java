@@ -1,4 +1,4 @@
-package org.apache.cordova;
+package com.kintips.cordova;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -13,19 +13,23 @@ import java.util.zip.ZipInputStream;
 import android.net.Uri;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
+import org.apache.cordova.CordovaResourceApi;
 import org.apache.cordova.CordovaResourceApi.OpenForReadResult;
 import org.apache.cordova.PluginResult;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.JSONArray;
 
 import android.util.Log;
+
+
 
 public class Zip extends CordovaPlugin {
 
     private static final String LOG_TAG = "Zip";
 
     @Override
-    public boolean execute(String action, CordovaArgs args, final CallbackContext callbackContext) throws JSONException {
+    public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
         if ("unzip".equals(action)) {
             unzip(args, callbackContext);
             return true;
@@ -33,7 +37,7 @@ public class Zip extends CordovaPlugin {
         return false;
     }
 
-    private void unzip(final CordovaArgs args, final CallbackContext callbackContext) {
+    private void unzip(final JSONArray args, final CallbackContext callbackContext) {
         this.cordova.getThreadPool().execute(new Runnable() {
             public void run() {
                 unzipSync(args, callbackContext);
@@ -50,7 +54,7 @@ public class Zip extends CordovaPlugin {
         return a | b << 8 | c << 16 | d << 24;
     }
 
-    private void unzipSync(CordovaArgs args, CallbackContext callbackContext) {
+    private void unzipSync(JSONArray args, CallbackContext callbackContext) {
         InputStream inputStream = null;
         try {
             String zipFileName = args.getString(0);

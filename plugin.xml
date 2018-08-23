@@ -16,11 +16,11 @@
   </js-module>
 
   <platform name="android">
-    <source-file src="src/android/Zip.java" target-dir="src/org/apache/cordova" />
+    <source-file src="src/android/Zip.java" target-dir="com/kintips/cordova" />
 
-    <config-file target="res/xml/config.xml" parent="/widget">
+    <config-file target="res/xml/config.xml" parent="/*">
       <feature name="Zip">
-        <param name="android-package" value="org.apache.cordova.Zip"/>
+        <param name="android-package" value="com.kintips.cordova.Zip"/>
       </feature>
     </config-file>
   </platform>
