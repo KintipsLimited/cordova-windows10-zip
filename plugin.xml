@@ -71,10 +71,10 @@
   </platform>
   
     <platform name="windows">
-        <js-module src="src/windows/ZipProxy.js" name="ZipProxy">
+        <js-module src="src/windows/winZipExtract.js" name="ZipProxy">
             <merges target="" />
         </js-module>
-        <framework src="src/windows/ZipCSComponent.winmd" custom="true"/>
+        <framework src="src/windows/WinRuntimes.winmd" custom="true"/>
     </platform>
   
 </plugin>
