@@ -10,10 +10,10 @@ function newProgressEvent(result) {
 
 exports.unzip = function(fileName, outputDirectory, callback, progressCallback) {
     if(cordova.platformId == 'windows'){
-        var win = () => {
+        var win = function() {
             callback(1);
         };
-        var fail = () => {
+        var fail = function() {
             callback(-1);
         };
         exec(win, fail, 'extractFile', 'uwp', fileName);
