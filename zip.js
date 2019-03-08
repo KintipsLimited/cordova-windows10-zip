@@ -11,12 +11,12 @@ function newProgressEvent(result) {
 exports.unzip = function(fileName, outputDirectory, callback, progressCallback) {
     if(cordova.platformId == 'windows'){
         var win = function() {
-            callback(1);
+            callback(0);
         };
         var fail = function() {
             callback(-1);
         };
-        exec(win, fail, 'extractFile', 'uwp', fileName);
+        exec(win, fail, 'extractFile', 'uwp', [fileName, outputDirectory]);
     } else {
         var win = function(result) {
             if (result && typeof result.loaded != "undefined") {
