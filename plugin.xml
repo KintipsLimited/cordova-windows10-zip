@@ -54,8 +54,8 @@
     <header-file src="src/ios/SSZipArchive.h" target-dir="Plugins/minizip" />
     <!-- <source-file src="src/ios/minizip/zip.c" target-dir="Plugins/minizip" /> -->
     <!-- <header-file src="src/ios/minizip/zip.h" target-dir="Plugins/minizip" /> -->
-    <!-- <source-file src="src/ios/minizip/unzip.c" target-dir="Plugins/minizip" /> -->
-    <!-- <header-file src="src/ios/minizip/unzip.h" target-dir="Plugins/minizip" /> -->
+    <source-file src="src/ios/minizip/unzip.c" target-dir="Plugins/minizip" />
+    <header-file src="src/ios/minizip/unzip.h" target-dir="Plugins/minizip" />
     <!-- <source-file src="src/ios/minizip/mztools.c" target-dir="Plugins/minizip" /> -->
     <!-- <header-file src="src/ios/minizip/mztools.h" target-dir="Plugins/minizip" /> -->
     <!-- <source-file src="src/ios/minizip/ioapi.c" target-dir="Plugins/minizip" /> -->
