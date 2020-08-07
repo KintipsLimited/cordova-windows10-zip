@@ -10,13 +10,13 @@ function newProgressEvent(result) {
 
 exports.unzip = function(fileName, outputDirectory, callback, progressCallback) {
     if(cordova.platformId == 'windows'){
-        var win = function() {
-            callback(0);
-        };
-        var fail = function() {
-            callback(-1);
-        };
-        exec(win, fail, 'extractFile', 'uwp', [fileName, outputDirectory]);
+            var win = function() {
+                callback(0);
+            };
+            var fail = function() {
+                callback(-1);
+            };
+            exec(win, fail, 'extractFile', 'uwp', [fileName, outputDirectory]);
     } else {
         var win = function(result) {
             if (result && typeof result.loaded != "undefined") {
@@ -34,4 +34,9 @@ exports.unzip = function(fileName, outputDirectory, callback, progressCallback) 
         };
         exec(win, fail, 'Zip', 'unzip', [fileName, outputDirectory]);
     }
+};
+
+
+exports.getAppFullPath = function() {
+    return Windows.Storage.ApplicationData.current.localFolder.path;
 };
